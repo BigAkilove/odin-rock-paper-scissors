@@ -1,6 +1,5 @@
 let computerResult = document.querySelector('.computer-choice');
   let playerResult = document.querySelector('.player-choice');
-  let bothChoices = document.querySelector('.both-choices');
   let roundResult = document.querySelector('.round-result');
   let scores = document.querySelector('.scores');
   let winner = document.querySelector('.winner');
@@ -57,7 +56,6 @@ let computerResult = document.querySelector('.computer-choice');
   function playRound(humanChoice, computerChoice) {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
-    bothChoices.innerText = 'Your move is ' + humanChoice + ', the computer chose ' + computerChoice
     let result;
 
     if (humanChoice === 'scissors') {
