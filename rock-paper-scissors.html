@@ -1,83 +1,39 @@
-<script>
-  function getComputerChoice() {
-    let randomNumber = Math.random();
-    let computerMove;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+ <link rel="stylesheet" href="rock-paper-scissors.css"></link>
+</head>
 
-    if (randomNumber >= 0 && randomNumber < 1/3) {
-      computerMove = 'scissors';
-    } else if (randomNumber >= 1/3 && randomNumber < 2/3) {
-      computerMove = 'paper';
-    } else if (randomNumber >= 2/3 && randomNumber < 1) {
-      computerMove = 'rock';
-    }
-    console.log('the computer has played ' + computerMove)
-    return computerMove
-  }
+<body>
+  <div id="rock-paper-scissors-container">
+    <button class="scissors">
+      Scissors
+    </button>
+      
+    <button class="paper">
+      Paper
+    </button>
 
-  function getHumanChoice() {
-    let playerMove = prompt('Please pick a move between rock, paper and scissors');
-    playerMove = playerMove.toLowerCase();
-    console.log('the player has played ' + playerMove);
-    if (playerMove === 'paper' || playerMove === 'scissors' || playerMove === 'rock') {
-    } else {
-      console.log('invalid move!')
-      getHumanChoice();
-    }
-    return playerMove;
-  }
+    <button class="rock">
+      Rock
+    </button>
+  </div>
 
-  let humanScore = 0, computerScore = 0;
+  <div class="choices-container">
+    <div class="moves-container">
+      <div class="player-choice">Pick a move</div>
+      <div class="computer-choice">The computer plays after you</div>
+    </div>
+    <div class="both-choices">Your mo</div>
+  </div>
 
-  function playRound(humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-    let result;
+  <div class="round-result"></div>
+  <div class="scores">We'll keep track of the results here</div>
+  <div class="winner">Get a score of 5 to win!</div>
 
-    if (humanChoice === 'scissors') {
-      if (computerChoice === 'scissors') {
-        result = 'tie';
-      } else if (computerChoice === 'paper') {
-        result = 'win';
-      } else if (computerChoice === 'rock') {
-        result = 'lose';
-      }
-    } else if (humanChoice === 'paper') {
-      if (computerChoice === 'scissors') {
-        result = 'lose';
-      } else if (computerChoice === 'paper') {
-        result = 'tie';
-      } else if (computerChoice === 'rock') {
-        result = 'win';
-      } 
-    }  else if (humanChoice === 'rock') {
-      if (computerChoice === 'scissors') {
-        result = 'win';
-      } else if (computerChoice === 'paper') {
-        result = 'lose';
-      } else if (computerChoice === 'rock') {
-        result = 'tie';
-      }
-    }
-
-    if (result === 'win') {
-      humanScore++
-      console.log('You win! ' + humanChoice + ' beats ' + computerChoice)
-    } else if (result === 'lose') {
-      computerScore++
-      console.log('You lose! ' + computerChoice + ' beats ' + humanChoice)
-    } else if (result === 'tie') {
-      console.log('You played the same move as the computer!')
-    }
-    
-  }
-
-  function playGame() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    console.log('You scored ' + humanScore + ', the computer scored ' + computerScore)
-  }
-  playGame();
-</script>
+<script src="rock-paper-scissors.js"></script>
+</body>
+</html>
